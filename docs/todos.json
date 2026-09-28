@@ -1,0 +1,26 @@
+{
+  "bancosol": {
+    "actualizado": "2026-09-28 14:00 (hora Bolivia)",
+    "banco": "BancoSol",
+    "compra": "10.85",
+    "venta": "12.15"
+  },
+  "bisa": {
+    "actualizado": "2026-09-28 14:00 (hora Bolivia)",
+    "banco": "Banco BISA",
+    "compra": "11.75",
+    "venta": "12.30"
+  },
+  "ecofuturo": {
+    "actualizado": "2026-09-28 14:01 (hora Bolivia)",
+    "banco": "Banco Ecofuturo",
+    "compra": "11.65",
+    "venta": "12.15"
+  },
+  "union": {
+    "actualizado": "2026-09-28 14:00 (hora Bolivia)",
+    "banco": "Banco Unión",
+    "compra": "11.05",
+    "venta": "12.15"
+  }
+}

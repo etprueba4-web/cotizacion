@@ -1,0 +1,4 @@
+banco=BancoSol
+compra=10.85
+venta=12.15
+actualizado=2026-09-28 14:00 (hora Bolivia)

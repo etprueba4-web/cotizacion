@@ -2,8 +2,9 @@ name: Actualizar tipo de cambio
 
 on:
   schedule:
-    - cron: "*/30 * * * *"   # cada 30 min (hora UTC). Para cada hora: "0 * * * *"
-  workflow_dispatch:          # permite ejecutarlo a mano
+    - cron: "0 5 * * *"   # 1:00 AM Bolivia (UTC-4)
+    - cron: "0 17 * * *"  # 1:00 PM Bolivia (UTC-4)
+  workflow_dispatch:       # Permite ejecutarlo manualmente
 
 permissions:
   contents: write

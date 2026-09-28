@@ -17,10 +17,16 @@
     "compra": "11.65",
     "venta": "12.15"
   },
+  "fortaleza": {
+    "actualizado": "2026-09-28 16:40 (hora Bolivia)",
+    "banco": "Banco Fortaleza",
+    "compra": "10.00",
+    "venta": "10.00"
+  },
   "union": {
-    "actualizado": "2026-09-28 14:00 (hora Bolivia)",
+    "actualizado": "2026-09-28 16:39 (hora Bolivia)",
     "banco": "Banco Unión",
     "compra": "11.05",
-    "venta": "12.15"
+    "venta": "14.00"
   }
 }

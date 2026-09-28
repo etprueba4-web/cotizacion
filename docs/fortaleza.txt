@@ -1,0 +1,4 @@
+banco=Banco Fortaleza
+compra=10.00
+venta=10.00
+actualizado=2026-09-28 16:40 (hora Bolivia)

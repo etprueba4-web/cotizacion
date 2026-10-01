@@ -1,9 +1,9 @@
 {
   "bancosol": {
-    "actualizado": "2026-09-29 17:09 (hora Bolivia)",
+    "actualizado": "2026-10-01 17:30 (hora Bolivia)",
     "banco": "BancoSol",
-    "compra": "10.82",
-    "venta": "12.32"
+    "compra": "10.80",
+    "venta": "12.30"
   },
   "bisa": {
     "actualizado": "2026-10-01 07:14 (hora Bolivia)",
@@ -24,9 +24,9 @@
     "venta": "10.00"
   },
   "union": {
-    "actualizado": "2026-09-30 17:05 (hora Bolivia)",
+    "actualizado": "2026-10-01 17:30 (hora Bolivia)",
     "banco": "Banco Unión",
-    "compra": "11.02",
-    "venta": "12.22"
+    "compra": "11.00",
+    "venta": "12.30"
   }
 }

@@ -1,0 +1,59 @@
+name: Actualización manual de cotización
+
+on:
+  workflow_dispatch:
+    inputs:
+      banco:
+        description: ID del banco
+        required: true
+        type: string
+      compra:
+        description: Cotización de compra en Bs (opcional)
+        required: false
+        type: string
+      venta:
+        description: Cotización de venta en Bs (opcional)
+        required: false
+        type: string
+      oficial:
+        description: Cotización oficial en Bs (opcional)
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: actualizar-tipo-cambio
+  cancel-in-progress: false
+
+jobs:
+  actualizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Instalar dependencias
+        run: pip install -r requirements.txt
+
+      - name: Guardar cotización manual
+        env:
+          BANK_ID: ${{ inputs.banco }}
+          BUY_RATE: ${{ inputs.compra }}
+          SELL_RATE: ${{ inputs.venta }}
+          OFFICIAL_RATE: ${{ inputs.oficial }}
+        run: python actualizar.py --manual "$BANK_ID" --compra "$BUY_RATE" --venta "$SELL_RATE" --oficial "$OFFICIAL_RATE"
+
+      - name: Guardar cambios
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          git commit -m "Registrar cotización manual"
+          git push

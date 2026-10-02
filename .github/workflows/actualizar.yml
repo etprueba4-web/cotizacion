@@ -2,8 +2,7 @@ name: Actualizar tipo de cambio
 
 on:
   schedule:
-    - cron: "0 5 * * *"   # 1:00 AM Bolivia (UTC-4)
-    - cron: "0 17 * * *"  # 1:00 PM Bolivia (UTC-4)
+    - cron: "*/30 * * * *"  # Cada 30 minutos (GitHub puede retrasarlo)
   workflow_dispatch:       # Permite ejecutarlo manualmente
 
 permissions:
@@ -29,11 +28,8 @@ jobs:
       - name: Instalar dependencias
         run: pip install -r requirements.txt
 
-      # Descomenta SOLO si algún banco usa  "modo": "playwright"  en bancos.py
-      # - name: Instalar Playwright
-      #   run: |
-      #     pip install playwright
-      #     playwright install --with-deps chromium
+      - name: Instalar Chromium para páginas dinámicas
+        run: playwright install --with-deps chromium
 
       - name: Obtener tipos de cambio
         run: python actualizar.py

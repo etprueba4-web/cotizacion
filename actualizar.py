@@ -39,6 +39,25 @@ def descargar(b):
             page = nav.new_page(user_agent=UA, locale="es-BO")
             page.goto(b["url"], wait_until="domcontentloaded", timeout=60000)
             page.wait_for_timeout(b.get("espera_ms", 4000))
+            for selector in (".modal button.close", ".modal [data-dismiss='modal']",
+                             ".modal [data-bs-dismiss='modal']", "button.btn-close",
+                             "button[aria-label='Cerrar']", "button[aria-label='Close']",
+                             ".mfp-close", ".modal-dialog .close"):
+                try:
+                    button = page.locator(selector).first
+                    if button.is_visible(timeout=400):
+                        button.click(timeout=1000)
+                        page.wait_for_timeout(300)
+                except Exception:
+                    pass
+            for label in ("Cerrar", "Close", "Aceptar", "Entendido", "×"):
+                try:
+                    button = page.get_by_role("button", name=label, exact=True).first
+                    if button.is_visible(timeout=300):
+                        button.click(timeout=1000)
+                        page.wait_for_timeout(300)
+                except Exception:
+                    pass
             contenido = page.content()
             nav.close()
             return contenido
@@ -75,7 +94,50 @@ def fmt(v):
 
 
 def extraer(contenido, b):
-    texto = BeautifulSoup(contenido, "html.parser").get_text(" ", strip=True)
+    soup = BeautifulSoup(contenido, "html.parser")
+    texto = soup.get_text(" ", strip=True)
+    if b.get("extractor") == "bnb":
+        datos = {}
+        etiquetas = {"compra": "dólar compra", "venta": "dólar venta", "oficial": "dólar oficial"}
+        for campo, etiqueta in etiquetas.items():
+            nodo = next((el for el in soup.find_all("span")
+                         if " ".join(el.get_text(" ", strip=True).lower().split()) == etiqueta), None)
+            valor_nodo = nodo.find_next_sibling("span") if nodo else None
+            valor = buscar(valor_nodo.get_text(" ", strip=True), NUM) if valor_nodo else None
+            datos[campo] = fmt(valor) if valor is not None else ""
+        if datos["compra"] and datos["venta"]:
+            return datos
+        raise ValueError("no se encontraron compra y venta en los rótulos del BNB")
+    if b.get("extractor") == "prodem":
+        datos = {}
+        for campo, selector in (("compra", "#prodem-compra"), ("venta", "#prodem-venta")):
+            nodo = soup.select_one(selector)
+            valor = buscar(nodo.get_text(" ", strip=True), NUM) if nodo else None
+            datos[campo] = fmt(valor) if valor is not None else ""
+        datos["oficial"] = ""
+        if datos["compra"] and datos["venta"]:
+            return datos
+        raise ValueError("no se encontraron los nodos #prodem-compra y #prodem-venta")
+    if b.get("extractor") == "bancomunidad":
+        encabezado = soup.select_one(".csc-tc__titulo")
+        oficial = buscar(encabezado.get_text(" ", strip=True), NUM) if encabezado else None
+        tasas = {}
+        tabla = soup.select_one(".csc-tc__tabla")
+        if tabla:
+            for fila in tabla.select("tr"):
+                etiqueta = fila.find("th")
+                valor_nodo = fila.find("td")
+                if not etiqueta or not valor_nodo:
+                    continue
+                campo = etiqueta.get_text(" ", strip=True).lower()
+                if campo in ("compra", "venta"):
+                    valor = buscar(valor_nodo.get_text(" ", strip=True), NUM)
+                    tasas[campo] = fmt(valor) if valor is not None else ""
+        datos = {"compra": tasas.get("compra", ""), "venta": tasas.get("venta", ""),
+                 "oficial": fmt(oficial) if oficial is not None else ""}
+        if any(datos.values()):
+            return datos
+        raise ValueError("no se encontraron las tasas en la tabla .csc-tc__tabla")
     patrones = {"compra": b.get("regex_compra", PATRON_COMPRA),
                 "venta": b.get("regex_venta", PATRON_VENTA),
                 "oficial": b.get("regex_oficial")}

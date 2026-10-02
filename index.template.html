@@ -52,7 +52,7 @@
     </div>
   </main>
   <script>
-    const BANKS = [{"id":"bcb","nombre":"Banco Central de Bolivia"},{"id":"bcp","nombre":"Banco de Crédito (BCP)"},{"id":"bnb","nombre":"Banco Nacional de Bolivia"},{"id":"union","nombre":"Banco Unión"},{"id":"bmsc","nombre":"Banco Mercantil Santa Cruz"},{"id":"bisa","nombre":"Banco BISA"},{"id":"ganadero","nombre":"Banco Ganadero"},{"id":"economico","nombre":"Banco Económico"},{"id":"bancosol","nombre":"BancoSol"},{"id":"prodem","nombre":"Banco Prodem"},{"id":"fortaleza","nombre":"Banco Fortaleza"},{"id":"ecofuturo","nombre":"Banco Ecofuturo"},{"id":"fie","nombre":"Banco FIE"},{"id":"bancomunidad","nombre":"Bancomunidad"}];
+    const BANKS = __BANKS__;
     const $ = id => document.getElementById(id);
     const safe = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const money = value => value ? `Bs ${String(value).replace('.', ',')}` : '—';

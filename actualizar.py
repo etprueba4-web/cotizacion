@@ -8,7 +8,6 @@ Uso:
   python actualizar.py --probar bcp    # prueba solo un banco
 """
 import argparse
-import html as htmllib
 import json
 import re
 import sys
@@ -87,6 +86,22 @@ def extraer(contenido, b):
     return {campo: fmt(valor) if valor is not None else "" for campo, valor in datos.items()}
 
 
+def guardar_cotizacion(banco, datos, origen):
+    ahora_dt = datetime.now(BOLIVIA)
+    ahora = ahora_dt.strftime("%Y-%m-%d %H:%M:%S (hora Bolivia)")
+    registro = {"banco_id": banco["id"], "banco": banco["nombre"],
+                "consultado": ahora_dt.isoformat(timespec="seconds"), "origen": origen,
+                **{k: (v or None) for k, v in datos.items()}}
+    historial = DOCS / "historial" / f"{banco['id']}.jsonl"
+    historial.parent.mkdir(exist_ok=True)
+    with historial.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(registro, ensure_ascii=False) + "\n")
+    tasas = {k: v for k, v in datos.items() if v}
+    texto = (f"banco={banco['nombre']}\n" + "".join(f"{k}={v}\n" for k, v in tasas.items())
+             + f"actualizado={ahora}\norigen={origen}\n")
+    (DOCS / f"{banco['id']}.txt").write_text(texto, encoding="utf-8")
+
+
 def leer_txt(ruta):
     if not ruta.exists():
         return None
@@ -106,35 +121,16 @@ def escribir_si_cambia(ruta, contenido):
 
 
 def generar_indice():
-    filas, resumen = [], {}
+    resumen = {}
     for b in BANCOS:
         d = leer_txt(DOCS / f"{b['id']}.txt")
-        e = htmllib.escape
         if d:
             resumen[b["id"]] = d
-            filas.append(f"<tr><td>{e(b['nombre'])}</td><td>{e(d.get('compra', '')) or '—'}</td>"
-                         f"<td>{e(d.get('venta', '')) or '—'}</td><td>{e(d.get('oficial', '')) or '—'}</td><td>{e(d['actualizado'])}</td>"
-                         f"<td><a href=\"{b['id']}.txt\">txt</a></td></tr>")
-        else:
-            filas.append(f"<tr><td>{e(b['nombre'])}</td><td colspan=\"5\">sin datos</td></tr>")
-    plantilla = """<!DOCTYPE html>
-<html lang="es"><head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tipo de cambio bancos de Bolivia</title>
-<style>
-body{font-family:system-ui,sans-serif;max-width:800px;margin:2rem auto;padding:0 1rem}
-table{border-collapse:collapse;width:100%}
-th,td{border-bottom:1px solid #8884;padding:.5rem;text-align:left}
-</style></head><body>
-<h1>Tipo de cambio USD - Bancos de Bolivia</h1>
-<table><tr><th>Banco</th><th>Compra (Bs)</th><th>Venta (Bs)</th><th>Oficial (Bs)</th><th>Última consulta</th><th>Archivo</th></tr>
-{{FILAS}}
-</table>
-<p><a href="todos.json">todos.json</a></p>
-<p>Historial por banco: <code>historial/&lt;id&gt;.jsonl</code> (una línea JSON por consulta).</p>
-</body></html>
-"""
-    escribir_si_cambia(DOCS / "index.html", plantilla.replace("{{FILAS}}", "\n".join(filas)))
+    bancos_json = json.dumps([{"id": b["id"], "nombre": b["nombre"]} for b in BANCOS], ensure_ascii=False)
+    plantilla_path = Path("index.template.html")
+    if plantilla_path.exists():
+        plantilla = plantilla_path.read_text(encoding="utf-8")
+        escribir_si_cambia(DOCS / "index.html", plantilla.replace("__BANKS__", bancos_json))
     escribir_si_cambia(DOCS / "todos.json",
                        json.dumps(resumen, ensure_ascii=False, indent=2, sort_keys=True) + "\n")
 
@@ -142,8 +138,36 @@ th,td{border-bottom:1px solid #8884;padding:.5rem;text-align:left}
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--probar", nargs="?", const="todos", help="probar sin escribir (opcional: id de banco)")
+    ap.add_argument("--manual", help="guardar una cotización manual para el ID indicado")
+    ap.add_argument("--compra", default="", help="cotización de compra (Bs)")
+    ap.add_argument("--venta", default="", help="cotización de venta (Bs)")
+    ap.add_argument("--oficial", default="", help="cotización oficial (Bs)")
     args = ap.parse_args()
     DOCS.mkdir(exist_ok=True)
+
+    if args.manual:
+        banco = next((b for b in BANCOS if b["id"] == args.manual), None)
+        if not banco:
+            sys.exit(f"Banco desconocido: {args.manual}")
+        datos = {}
+        for campo in ("compra", "venta", "oficial"):
+            entrada = getattr(args, campo).strip().replace(",", ".")
+            if entrada:
+                try:
+                    valor = float(entrada)
+                except ValueError:
+                    sys.exit(f"Valor inválido para {campo}: {entrada}")
+                if not MIN_OK <= valor <= MAX_OK:
+                    sys.exit(f"El valor de {campo} debe estar entre {MIN_OK:g} y {MAX_OK:g} Bs")
+                datos[campo] = fmt(valor)
+            else:
+                datos[campo] = ""
+        if not any(datos.values()):
+            sys.exit("Debes ingresar al menos una cotización")
+        guardar_cotizacion(banco, datos, "manual")
+        generar_indice()
+        print(f"[OK] {banco['nombre']}: cotización manual agregada al historial")
+        return
 
     bancos = BANCOS
     if args.probar and args.probar != "todos":
@@ -163,19 +187,7 @@ def main():
         print(f"[OK]    {b['id']}: compra={datos['compra'] or '—'} venta={datos['venta'] or '—'} oficial={datos['oficial'] or '—'}")
         if args.probar:
             continue
-        ruta = DOCS / f"{b['id']}.txt"
-        ahora_dt = datetime.now(BOLIVIA)
-        ahora = ahora_dt.strftime("%Y-%m-%d %H:%M:%S (hora Bolivia)")
-        registro = {"banco_id": b["id"], "banco": b["nombre"],
-                    "consultado": ahora_dt.isoformat(timespec="seconds"),
-                    **{k: (v or None) for k, v in datos.items()}}
-        historial = DOCS / "historial" / f"{b['id']}.jsonl"
-        historial.parent.mkdir(exist_ok=True)
-        with historial.open("a", encoding="utf-8") as f:
-            f.write(json.dumps(registro, ensure_ascii=False) + "\n")
-        tasas = {k: v for k, v in datos.items() if v}
-        texto = f"banco={b['nombre']}\n" + "".join(f"{k}={v}\n" for k, v in tasas.items()) + f"actualizado={ahora}\n"
-        ruta.write_text(texto, encoding="utf-8")
+        guardar_cotizacion(b, datos, "automatico")
 
     if not args.probar:
         generar_indice()

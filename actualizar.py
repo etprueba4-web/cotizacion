@@ -1,6 +1,6 @@
 """
-Consulta el tipo de cambio (compra/venta USD) de cada banco de bancos.py
-y escribe un archivo de texto por banco en docs/.
+Consulta las tasas USD configuradas y guarda el valor actual más una línea
+histórica por banco en docs/historial/.
 
 Uso:
   python actualizar.py                 # actualiza todos y escribe en docs/
@@ -17,13 +17,15 @@ from pathlib import Path
 
 import requests
 from bs4 import BeautifulSoup
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 
 from bancos import BANCOS
 
 DOCS = Path("docs")
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleTrapp/537.36 "
       "(KHTML, like Gecko) Chrome/124.0 Safari/537.36").replace("AppleTrapp", "AppleWebKit")
-NUM = r"(\d{1,2}[.,]\d{1,4})"
+NUM = r"([\d]{1,2}[.,][\d]{1,5})"
 PATRON_COMPRA = r"compra\D{0,60}?" + NUM
 PATRON_VENTA = r"venta\D{0,60}?" + NUM
 MIN_OK, MAX_OK = 5.0, 20.0          # rango razonable Bs por USD
@@ -34,14 +36,23 @@ def descargar(b):
     if b.get("modo") == "playwright":
         from playwright.sync_api import sync_playwright
         with sync_playwright() as p:
-            nav = p.chromium.launch()
-            page = nav.new_page(user_agent=UA)
-            page.goto(b["url"], wait_until="networkidle", timeout=60000)
+            nav = p.chromium.launch(headless=True)
+            page = nav.new_page(user_agent=UA, locale="es-BO")
+            page.goto(b["url"], wait_until="domcontentloaded", timeout=60000)
+            page.wait_for_timeout(b.get("espera_ms", 4000))
             contenido = page.content()
             nav.close()
             return contenido
-    r = requests.get(b["url"], timeout=30, headers={"User-Agent": UA},
-                     verify=b.get("ssl_verify", True))
+    reintentos = Retry(total=3, connect=3, read=2, backoff_factor=1,
+                       status_forcelist=(429, 500, 502, 503, 504),
+                       allowed_methods=frozenset(["GET"]))
+    sesion = requests.Session()
+    sesion.mount("https://", HTTPAdapter(max_retries=reintentos))
+    sesion.mount("http://", HTTPAdapter(max_retries=reintentos))
+    headers = {"User-Agent": UA, "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+               "Accept-Language": "es-BO,es;q=0.9,en;q=0.8", "Cache-Control": "no-cache"}
+    r = sesion.get(b["url"], timeout=30, headers=headers,
+                   verify=b.get("ssl_verify", True))
     r.raise_for_status()
     return r.text
 
@@ -55,18 +66,25 @@ def buscar(texto, patron):
 
 
 def fmt(v):
-    s = f"{v:.4f}".rstrip("0")
-    ent, dec = s.split(".")
-    return f"{ent}.{dec.ljust(2, '0')}"
+    s = f"{v:.5f}".rstrip("0").rstrip(".")
+    if "." not in s:
+        s += ".00"
+    else:
+        ent, dec = s.split(".")
+        s = f"{ent}.{dec.ljust(2, '0')}"
+    return s
 
 
 def extraer(contenido, b):
     texto = BeautifulSoup(contenido, "html.parser").get_text(" ", strip=True)
-    compra = buscar(texto, b.get("regex_compra", PATRON_COMPRA))
-    venta = buscar(texto, b.get("regex_venta", PATRON_VENTA))
-    if compra is None or venta is None:
-        raise ValueError("no se encontraron compra/venta en la página")
-    return fmt(compra), fmt(venta)
+    patrones = {"compra": b.get("regex_compra", PATRON_COMPRA),
+                "venta": b.get("regex_venta", PATRON_VENTA),
+                "oficial": b.get("regex_oficial")}
+    datos = {campo: buscar(contenido if b["id"] in ("bcb", "prodem", "fortaleza") else texto, patron)
+             if patron else None for campo, patron in patrones.items()}
+    if not any(datos.values()):
+        raise ValueError("no se encontró ninguna cotización configurada en la página")
+    return {campo: fmt(valor) if valor is not None else "" for campo, valor in datos.items()}
 
 
 def leer_txt(ruta):
@@ -89,17 +107,16 @@ def escribir_si_cambia(ruta, contenido):
 
 def generar_indice():
     filas, resumen = [], {}
-    ahora = datetime.now(BOLIVIA).strftime("%Y-%m-%d %H:%M")
     for b in BANCOS:
         d = leer_txt(DOCS / f"{b['id']}.txt")
         e = htmllib.escape
         if d:
             resumen[b["id"]] = d
-            filas.append(f"<tr><td>{e(b['nombre'])}</td><td>{e(d['compra'])}</td>"
-                         f"<td>{e(d['venta'])}</td><td>{e(d['actualizado'])}</td>"
+            filas.append(f"<tr><td>{e(b['nombre'])}</td><td>{e(d.get('compra', '')) or '—'}</td>"
+                         f"<td>{e(d.get('venta', '')) or '—'}</td><td>{e(d.get('oficial', '')) or '—'}</td><td>{e(d['actualizado'])}</td>"
                          f"<td><a href=\"{b['id']}.txt\">txt</a></td></tr>")
         else:
-            filas.append(f"<tr><td>{e(b['nombre'])}</td><td colspan=\"4\">sin datos</td></tr>")
+            filas.append(f"<tr><td>{e(b['nombre'])}</td><td colspan=\"5\">sin datos</td></tr>")
     plantilla = """<!DOCTYPE html>
 <html lang="es"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -110,10 +127,11 @@ table{border-collapse:collapse;width:100%}
 th,td{border-bottom:1px solid #8884;padding:.5rem;text-align:left}
 </style></head><body>
 <h1>Tipo de cambio USD - Bancos de Bolivia</h1>
-<table><tr><th>Banco</th><th>Compra (Bs)</th><th>Venta (Bs)</th><th>Último cambio</th><th>Archivo</th></tr>
+<table><tr><th>Banco</th><th>Compra (Bs)</th><th>Venta (Bs)</th><th>Oficial (Bs)</th><th>Última consulta</th><th>Archivo</th></tr>
 {{FILAS}}
 </table>
 <p><a href="todos.json">todos.json</a></p>
+<p>Historial por banco: <code>historial/&lt;id&gt;.jsonl</code> (una línea JSON por consulta).</p>
 </body></html>
 """
     escribir_si_cambia(DOCS / "index.html", plantilla.replace("{{FILAS}}", "\n".join(filas)))
@@ -136,22 +154,28 @@ def main():
     ok, fallos = 0, []
     for b in bancos:
         try:
-            compra, venta = extraer(descargar(b), b)
+            datos = extraer(descargar(b), b)
         except Exception as e:
             fallos.append(b["id"])
             print(f"[FALLO] {b['id']}: {e}")
             continue
         ok += 1
-        print(f"[OK]    {b['id']}: compra={compra} venta={venta}")
+        print(f"[OK]    {b['id']}: compra={datos['compra'] or '—'} venta={datos['venta'] or '—'} oficial={datos['oficial'] or '—'}")
         if args.probar:
             continue
         ruta = DOCS / f"{b['id']}.txt"
-        previo = leer_txt(ruta)
-        if previo and previo.get("compra") == compra and previo.get("venta") == venta:
-            continue  # sin cambios: no tocar el archivo (evita commits inútiles)
-        ahora = datetime.now(BOLIVIA).strftime("%Y-%m-%d %H:%M (hora Bolivia)")
-        ruta.write_text(f"banco={b['nombre']}\ncompra={compra}\nventa={venta}\nactualizado={ahora}\n",
-                        encoding="utf-8")
+        ahora_dt = datetime.now(BOLIVIA)
+        ahora = ahora_dt.strftime("%Y-%m-%d %H:%M:%S (hora Bolivia)")
+        registro = {"banco_id": b["id"], "banco": b["nombre"],
+                    "consultado": ahora_dt.isoformat(timespec="seconds"),
+                    **{k: (v or None) for k, v in datos.items()}}
+        historial = DOCS / "historial" / f"{b['id']}.jsonl"
+        historial.parent.mkdir(exist_ok=True)
+        with historial.open("a", encoding="utf-8") as f:
+            f.write(json.dumps(registro, ensure_ascii=False) + "\n")
+        tasas = {k: v for k, v in datos.items() if v}
+        texto = f"banco={b['nombre']}\n" + "".join(f"{k}={v}\n" for k, v in tasas.items()) + f"actualizado={ahora}\n"
+        ruta.write_text(texto, encoding="utf-8")
 
     if not args.probar:
         generar_indice()

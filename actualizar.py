@@ -39,6 +39,31 @@ def descargar(b):
             page = nav.new_page(user_agent=UA, locale="es-BO")
             page.goto(b["url"], wait_until="domcontentloaded", timeout=60000)
             page.wait_for_timeout(b.get("espera_ms", 4000))
+            if b.get("cerrar_modal"):
+                for selector in (".modal-dialog button.close[aria-label='Close']",
+                                 ".modal-dialog .modal-footer button[data-dismiss='modal']"):
+                    try:
+                        button = page.locator(selector).first
+                        if button.is_visible():
+                            button.click(timeout=2500, force=True)
+                            page.wait_for_timeout(500)
+                            break
+                    except Exception:
+                        pass
+                # Fallback for pages where the Bootstrap handler is not initialized yet.
+                page.evaluate("""() => {
+                  document.querySelectorAll('.modal').forEach(m => {
+                    m.classList.remove('show', 'in');
+                    m.style.display = 'none';
+                    m.setAttribute('aria-hidden', 'true');
+                  });
+                  document.querySelectorAll('.modal-backdrop').forEach(e => e.remove());
+                  document.body.classList.remove('modal-open');
+                  document.body.style.removeProperty('padding-right');
+                }""")
+                page.wait_for_timeout(1200)
+            if b.get("espera_selector"):
+                page.wait_for_selector(b["espera_selector"], state="visible", timeout=15000)
             for selector in (".modal button.close", ".modal [data-dismiss='modal']",
                              ".modal [data-bs-dismiss='modal']", "button.btn-close",
                              "button[aria-label='Cerrar']", "button[aria-label='Close']",

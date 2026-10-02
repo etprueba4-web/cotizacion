@@ -1,5 +1,5 @@
-banco=Banco Unión
-compra=10.90
+banco=Banco Nacional de Bolivia
+compra=11.40
 venta=12.20
 oficial=11.90
 actualizado=2026-10-02 15:11:02 (hora Bolivia)

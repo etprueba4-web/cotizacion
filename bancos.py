@@ -16,6 +16,7 @@ Ajusta las URLs/regex de los bancos que fallen (ver README, paso 7).
 """
 
 BANCOS = [
+    {"id": "bcb",         "nombre": "Banco Central de Bolivia",     "url": "https://www.bcb.gob.bo/"},  
     {"id": "bcp",         "nombre": "Banco de Crédito (BCP)",       "url": "https://www.bcp.com.bo/"},
     {"id": "bnb",         "nombre": "Banco Nacional de Bolivia",    "url": "https://www.bnb.com.bo/"},
     {"id": "union",       "nombre": "Banco Unión",                  "url": "https://www.bancounion.com.bo/"},

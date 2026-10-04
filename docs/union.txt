@@ -2,5 +2,5 @@ banco=Banco Unión
 compra=11.00
 venta=12.30
 oficial=12.00
-actualizado=2026-10-03 18:46:21 (hora Bolivia)
+actualizado=2026-10-03 22:28:34 (hora Bolivia)
 origen=automatico

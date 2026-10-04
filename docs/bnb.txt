@@ -2,5 +2,5 @@ banco=Banco Nacional de Bolivia
 compra=11.50
 venta=12.30
 oficial=12.00
-actualizado=2026-10-04 04:43:14 (hora Bolivia)
+actualizado=2026-10-04 10:42:32 (hora Bolivia)
 origen=automatico

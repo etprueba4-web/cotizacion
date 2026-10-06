@@ -1,14 +1,14 @@
 {
   "bancomunidad": {
-    "actualizado": "2026-10-05 23:16:46 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:43:26 (hora Bolivia)",
     "banco": "Bancomunidad",
-    "compra": "11.60",
-    "oficial": "12.00",
+    "compra": "11.57",
+    "oficial": "11.97",
     "origen": "automatico",
-    "venta": "12.25"
+    "venta": "12.22"
   },
   "bancosol": {
-    "actualizado": "2026-10-05 23:14:56 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:41:33 (hora Bolivia)",
     "banco": "BancoSol",
     "compra": "10.80",
     "oficial": "12.00",
@@ -16,85 +16,85 @@
     "venta": "12.30"
   },
   "bcb": {
-    "actualizado": "2026-10-05 23:14:18 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:40:52 (hora Bolivia)",
     "banco": "Banco Central de Bolivia",
-    "oficial": "12.00",
+    "oficial": "11.97",
     "origen": "automatico"
   },
   "bcp": {
-    "actualizado": "2026-10-05 23:14:26 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:41:04 (hora Bolivia)",
     "banco": "Banco de Crédito (BCP)",
-    "compra": "11.50",
+    "compra": "11.47",
     "origen": "automatico",
-    "venta": "12.30"
+    "venta": "12.27"
   },
   "bisa": {
-    "actualizado": "2026-10-05 23:14:43 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:41:21 (hora Bolivia)",
     "banco": "Banco BISA",
-    "compra": "11.30",
+    "compra": "11.27",
     "origen": "automatico",
-    "venta": "12.30"
+    "venta": "12.27"
   },
   "bmsc": {
-    "actualizado": "2026-10-05 23:14:41 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:41:20 (hora Bolivia)",
     "banco": "Banco Mercantil Santa Cruz",
-    "compra": "10.90",
-    "oficial": "12.00",
+    "compra": "10.87",
+    "oficial": "11.97",
     "origen": "automatico",
-    "venta": "12.30"
+    "venta": "12.27"
   },
   "bnb": {
-    "actualizado": "2026-10-05 23:14:34 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:41:12 (hora Bolivia)",
     "banco": "Banco Nacional de Bolivia",
-    "compra": "11.50",
-    "oficial": "12.00",
+    "compra": "11.47",
+    "oficial": "11.97",
     "origen": "automatico",
-    "venta": "12.30"
+    "venta": "12.27"
   },
   "ecofuturo": {
-    "actualizado": "2026-10-05 23:16:34 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:43:13 (hora Bolivia)",
     "banco": "Banco Ecofuturo",
-    "compra": "11.00",
-    "oficial": "12.00",
+    "compra": "10.97",
+    "oficial": "11.97",
     "origen": "automatico",
-    "venta": "12.40"
+    "venta": "12.37"
   },
   "economico": {
-    "actualizado": "2026-10-05 23:14:56 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:41:33 (hora Bolivia)",
     "banco": "Banco Económico",
-    "compra": "11.30",
-    "oficial": "12.00",
+    "compra": "11.27",
+    "oficial": "11.97",
     "origen": "automatico",
-    "venta": "12.35"
+    "venta": "12.32"
   },
   "fie": {
-    "actualizado": "2026-10-05 23:16:44 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:43:24 (hora Bolivia)",
     "banco": "Banco FIE",
-    "compra": "11.10",
-    "oficial": "12.00",
+    "compra": "11.07",
+    "oficial": "11.97",
     "origen": "automatico",
-    "venta": "12.00"
+    "venta": "11.97"
   },
   "fortaleza": {
-    "actualizado": "2026-10-05 23:16:05 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:42:42 (hora Bolivia)",
     "banco": "Banco Fortaleza",
-    "compra": "11.70",
-    "oficial": "12.00",
+    "compra": "11.67",
+    "oficial": "11.97",
     "origen": "automatico",
-    "venta": "12.30"
+    "venta": "12.27"
   },
   "ganadero": {
-    "actualizado": "2026-10-05 23:14:49 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:41:26 (hora Bolivia)",
     "banco": "Banco Ganadero",
     "origen": "automatico",
-    "venta": "12.30"
+    "venta": "12.27"
   },
   "union": {
-    "actualizado": "2026-10-05 23:14:34 (hora Bolivia)",
+    "actualizado": "2026-10-06 06:41:13 (hora Bolivia)",
     "banco": "Banco Unión",
-    "compra": "11.00",
-    "oficial": "12.00",
+    "compra": "10.97",
+    "oficial": "11.97",
     "origen": "automatico",
-    "venta": "12.30"
+    "venta": "12.27"
   }
 }

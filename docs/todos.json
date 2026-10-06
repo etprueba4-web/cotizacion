@@ -1,6 +1,6 @@
 {
   "bancomunidad": {
-    "actualizado": "2026-10-05 19:09:23 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:16:46 (hora Bolivia)",
     "banco": "Bancomunidad",
     "compra": "11.60",
     "oficial": "12.00",
@@ -8,7 +8,7 @@
     "venta": "12.25"
   },
   "bancosol": {
-    "actualizado": "2026-10-05 19:07:32 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:14:56 (hora Bolivia)",
     "banco": "BancoSol",
     "compra": "10.80",
     "oficial": "12.00",
@@ -16,27 +16,27 @@
     "venta": "12.30"
   },
   "bcb": {
-    "actualizado": "2026-10-05 19:06:52 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:14:18 (hora Bolivia)",
     "banco": "Banco Central de Bolivia",
     "oficial": "12.00",
     "origen": "automatico"
   },
   "bcp": {
-    "actualizado": "2026-10-05 19:07:01 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:14:26 (hora Bolivia)",
     "banco": "Banco de Crédito (BCP)",
     "compra": "11.50",
     "origen": "automatico",
     "venta": "12.30"
   },
   "bisa": {
-    "actualizado": "2026-10-05 19:07:19 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:14:43 (hora Bolivia)",
     "banco": "Banco BISA",
     "compra": "11.30",
     "origen": "automatico",
     "venta": "12.30"
   },
   "bmsc": {
-    "actualizado": "2026-10-05 19:07:17 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:14:41 (hora Bolivia)",
     "banco": "Banco Mercantil Santa Cruz",
     "compra": "10.90",
     "oficial": "12.00",
@@ -44,7 +44,7 @@
     "venta": "12.30"
   },
   "bnb": {
-    "actualizado": "2026-10-05 19:07:08 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:14:34 (hora Bolivia)",
     "banco": "Banco Nacional de Bolivia",
     "compra": "11.50",
     "oficial": "12.00",
@@ -52,7 +52,7 @@
     "venta": "12.30"
   },
   "ecofuturo": {
-    "actualizado": "2026-10-05 19:09:07 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:16:34 (hora Bolivia)",
     "banco": "Banco Ecofuturo",
     "compra": "11.00",
     "oficial": "12.00",
@@ -60,7 +60,7 @@
     "venta": "12.40"
   },
   "economico": {
-    "actualizado": "2026-10-05 19:07:31 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:14:56 (hora Bolivia)",
     "banco": "Banco Económico",
     "compra": "11.30",
     "oficial": "12.00",
@@ -68,7 +68,7 @@
     "venta": "12.35"
   },
   "fie": {
-    "actualizado": "2026-10-05 19:09:21 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:16:44 (hora Bolivia)",
     "banco": "Banco FIE",
     "compra": "11.10",
     "oficial": "12.00",
@@ -76,7 +76,7 @@
     "venta": "12.00"
   },
   "fortaleza": {
-    "actualizado": "2026-10-05 19:08:40 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:16:05 (hora Bolivia)",
     "banco": "Banco Fortaleza",
     "compra": "11.70",
     "oficial": "12.00",
@@ -84,13 +84,13 @@
     "venta": "12.30"
   },
   "ganadero": {
-    "actualizado": "2026-10-05 19:07:25 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:14:49 (hora Bolivia)",
     "banco": "Banco Ganadero",
     "origen": "automatico",
     "venta": "12.30"
   },
   "union": {
-    "actualizado": "2026-10-05 19:07:08 (hora Bolivia)",
+    "actualizado": "2026-10-05 23:14:34 (hora Bolivia)",
     "banco": "Banco Unión",
     "compra": "11.00",
     "oficial": "12.00",

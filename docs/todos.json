@@ -1,14 +1,14 @@
 {
   "bancomunidad": {
-    "actualizado": "2026-10-07 20:52:28 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:10:51 (hora Bolivia)",
     "banco": "Bancomunidad",
-    "compra": "11.57",
-    "oficial": "11.97",
+    "compra": "11.45",
+    "oficial": "11.85",
     "origen": "automatico",
-    "venta": "12.22"
+    "venta": "12.10"
   },
   "bancosol": {
-    "actualizado": "2026-10-07 20:50:38 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:09:00 (hora Bolivia)",
     "banco": "BancoSol",
     "compra": "10.77",
     "oficial": "11.97",
@@ -16,67 +16,67 @@
     "venta": "12.27"
   },
   "bcb": {
-    "actualizado": "2026-10-07 20:50:00 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:08:15 (hora Bolivia)",
     "banco": "Banco Central de Bolivia",
-    "oficial": "11.97",
+    "oficial": "11.85",
     "origen": "automatico"
   },
   "bcp": {
-    "actualizado": "2026-10-07 20:50:08 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:08:26 (hora Bolivia)",
     "banco": "Banco de Crédito (BCP)",
-    "compra": "11.47",
+    "compra": "11.35",
     "origen": "automatico",
-    "venta": "12.27"
+    "venta": "12.15"
   },
   "bisa": {
-    "actualizado": "2026-10-07 20:50:27 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:08:47 (hora Bolivia)",
     "banco": "Banco BISA",
-    "compra": "11.27",
+    "compra": "11.15",
     "origen": "automatico",
-    "venta": "12.27"
+    "venta": "12.15"
   },
   "bmsc": {
-    "actualizado": "2026-10-07 20:50:25 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:08:45 (hora Bolivia)",
     "banco": "Banco Mercantil Santa Cruz",
-    "compra": "10.87",
-    "oficial": "11.97",
+    "compra": "10.75",
+    "oficial": "11.85",
     "origen": "automatico",
-    "venta": "12.27"
+    "venta": "12.15"
   },
   "bnb": {
-    "actualizado": "2026-10-07 20:50:16 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:08:35 (hora Bolivia)",
     "banco": "Banco Nacional de Bolivia",
-    "compra": "11.47",
-    "oficial": "11.97",
+    "compra": "11.35",
+    "oficial": "11.85",
     "origen": "automatico",
-    "venta": "12.27"
+    "venta": "12.15"
   },
   "ecofuturo": {
-    "actualizado": "2026-10-07 20:52:16 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:10:39 (hora Bolivia)",
     "banco": "Banco Ecofuturo",
-    "compra": "10.97",
-    "oficial": "11.97",
+    "compra": "10.85",
+    "oficial": "11.85",
     "origen": "automatico",
-    "venta": "12.37"
+    "venta": "12.25"
   },
   "economico": {
-    "actualizado": "2026-10-07 20:50:38 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:09:00 (hora Bolivia)",
     "banco": "Banco Económico",
-    "compra": "11.07",
-    "oficial": "11.97",
+    "compra": "10.85",
+    "oficial": "11.85",
     "origen": "automatico",
-    "venta": "12.32"
+    "venta": "12.20"
   },
   "fie": {
-    "actualizado": "2026-10-07 20:52:26 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:10:49 (hora Bolivia)",
     "banco": "Banco FIE",
-    "compra": "11.07",
-    "oficial": "11.97",
+    "compra": "10.95",
+    "oficial": "11.85",
     "origen": "automatico",
-    "venta": "12.17"
+    "venta": "12.05"
   },
   "fortaleza": {
-    "actualizado": "2026-10-07 20:51:48 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:10:10 (hora Bolivia)",
     "banco": "Banco Fortaleza",
     "compra": "11.67",
     "oficial": "11.97",
@@ -84,10 +84,10 @@
     "venta": "12.27"
   },
   "ganadero": {
-    "actualizado": "2026-10-07 20:50:32 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:08:52 (hora Bolivia)",
     "banco": "Banco Ganadero",
     "origen": "automatico",
-    "venta": "12.27"
+    "venta": "12.15"
   },
   "prodem": {
     "actualizado": "2026-10-07 08:43:31 (hora Bolivia)",
@@ -98,11 +98,11 @@
     "venta": "12.07"
   },
   "union": {
-    "actualizado": "2026-10-07 20:50:17 (hora Bolivia)",
+    "actualizado": "2026-10-08 03:08:36 (hora Bolivia)",
     "banco": "Banco Unión",
-    "compra": "10.97",
-    "oficial": "11.97",
+    "compra": "10.85",
+    "oficial": "11.85",
     "origen": "automatico",
-    "venta": "12.27"
+    "venta": "12.05"
   }
 }

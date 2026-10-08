@@ -90,12 +90,11 @@
     "venta": "12.15"
   },
   "prodem": {
-    "actualizado": "2026-10-07 08:43:31 (hora Bolivia)",
+    "actualizado": "2026-10-08 09:15:00 (hora Bolivia)",
     "banco": "Banco Prodem",
-    "compra": "11.67",
-    "oficial": "11.97",
+    "compra": "11.55",
     "origen": "manual",
-    "venta": "12.07"
+    "venta": "11.95"
   },
   "union": {
     "actualizado": "2026-10-08 09:09:51 (hora Bolivia)",

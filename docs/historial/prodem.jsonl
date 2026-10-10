@@ -3,3 +3,4 @@
 {"banco_id": "prodem", "banco": "Banco Prodem", "consultado": "2026-10-08T09:15:00-04:00", "origen": "manual", "compra": "11.55", "venta": "11.95", "oficial": null}
 {"banco_id": "prodem", "banco": "Banco Prodem", "consultado": "2026-10-09T16:16:26-04:00", "origen": "automatico", "compra": "11.55", "venta": "11.95", "oficial": null}
 {"banco_id": "prodem", "banco": "Banco Prodem", "consultado": "2026-10-09T20:15:13-04:00", "origen": "automatico", "compra": "11.55", "venta": "11.95", "oficial": null}
+{"banco_id": "prodem", "banco": "Banco Prodem", "consultado": "2026-10-10T02:15:55-04:00", "origen": "automatico", "compra": "11.55", "venta": "11.95", "oficial": null}

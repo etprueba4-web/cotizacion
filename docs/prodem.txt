@@ -1,5 +1,5 @@
 banco=Banco Prodem
-compra=11.40
-venta=11.80
-actualizado=2026-10-14 23:53:55 (hora Bolivia)
+compra=11.38
+venta=11.78
+actualizado=2026-10-15 05:01:27 (hora Bolivia)
 origen=automatico

@@ -1,6 +1,6 @@
 banco=Bancomunidad
-compra=11.30
-venta=11.95
-oficial=11.70
-actualizado=2026-10-14 23:54:47 (hora Bolivia)
+compra=11.28
+venta=11.93
+oficial=11.68
+actualizado=2026-10-15 05:02:14 (hora Bolivia)
 origen=automatico

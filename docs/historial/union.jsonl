@@ -65,3 +65,4 @@
 {"banco_id": "union", "banco": "Banco Unión", "consultado": "2026-10-16T07:01:00-04:00", "origen": "automatico", "compra": "10.18", "venta": "11.98", "oficial": "11.68"}
 {"banco_id": "union", "banco": "Banco Unión", "consultado": "2026-10-16T11:28:13-04:00", "origen": "automatico", "compra": "10.18", "venta": null, "oficial": null}
 {"banco_id": "union", "banco": "Banco Unión", "consultado": "2026-10-16T14:58:13-04:00", "origen": "automatico", "compra": "10.18", "venta": null, "oficial": null}
+{"banco_id": "union", "banco": "Banco Unión", "consultado": "2026-10-16T18:00:05-04:00", "origen": "automatico", "compra": "10.18", "venta": null, "oficial": null}

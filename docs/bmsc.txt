@@ -2,5 +2,5 @@ banco=Banco Mercantil Santa Cruz
 compra=10.59
 venta=11.99
 oficial=11.69
-actualizado=2026-10-19 13:07:12 (hora Bolivia)
+actualizado=2026-10-19 17:42:08 (hora Bolivia)
 origen=automatico

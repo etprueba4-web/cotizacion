@@ -1,4 +1,4 @@
 banco=Banco Ganadero
 venta=11.99
-actualizado=2026-10-19 00:29:19 (hora Bolivia)
+actualizado=2026-10-19 06:13:40 (hora Bolivia)
 origen=automatico

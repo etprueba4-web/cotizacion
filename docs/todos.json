@@ -1,14 +1,14 @@
 {
   "bancomunidad": {
-    "actualizado": "2026-10-20 21:54:47 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:19:37 (hora Bolivia)",
     "banco": "Bancomunidad",
-    "compra": "11.30",
-    "oficial": "11.70",
+    "compra": "11.33",
+    "oficial": "11.73",
     "origen": "automatico",
-    "venta": "11.95"
+    "venta": "11.98"
   },
   "bancosol": {
-    "actualizado": "2026-10-20 21:53:39 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:18:22 (hora Bolivia)",
     "banco": "BancoSol",
     "compra": "10.53",
     "oficial": "11.70",
@@ -16,67 +16,67 @@
     "venta": "12.00"
   },
   "bcb": {
-    "actualizado": "2026-10-20 21:53:00 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:17:39 (hora Bolivia)",
     "banco": "Banco Central de Bolivia",
-    "oficial": "11.70",
+    "oficial": "11.73",
     "origen": "automatico"
   },
   "bcp": {
-    "actualizado": "2026-10-20 21:53:09 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:17:51 (hora Bolivia)",
     "banco": "Banco de Crédito (BCP)",
-    "compra": "11.20",
+    "compra": "11.23",
     "origen": "automatico",
-    "venta": "12.00"
+    "venta": "12.03"
   },
   "bisa": {
-    "actualizado": "2026-10-20 21:53:27 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:18:09 (hora Bolivia)",
     "banco": "Banco BISA",
-    "compra": "11.00",
+    "compra": "11.03",
     "origen": "automatico",
-    "venta": "11.92"
+    "venta": "11.95"
   },
   "bmsc": {
-    "actualizado": "2026-10-20 21:53:25 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:18:08 (hora Bolivia)",
     "banco": "Banco Mercantil Santa Cruz",
-    "compra": "10.60",
-    "oficial": "11.70",
+    "compra": "10.63",
+    "oficial": "11.73",
     "origen": "automatico",
-    "venta": "12.00"
+    "venta": "12.03"
   },
   "bnb": {
-    "actualizado": "2026-10-20 21:53:17 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:17:59 (hora Bolivia)",
     "banco": "Banco Nacional de Bolivia",
-    "compra": "11.20",
-    "oficial": "11.70",
+    "compra": "11.23",
+    "oficial": "11.73",
     "origen": "automatico",
-    "venta": "12.00"
+    "venta": "12.03"
   },
   "ecofuturo": {
-    "actualizado": "2026-10-20 21:54:34 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:19:25 (hora Bolivia)",
     "banco": "Banco Ecofuturo",
-    "compra": "10.70",
-    "oficial": "11.70",
+    "compra": "10.73",
+    "oficial": "11.73",
     "origen": "automatico",
-    "venta": "12.10"
+    "venta": "12.13"
   },
   "economico": {
-    "actualizado": "2026-10-20 21:53:38 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:18:21 (hora Bolivia)",
     "banco": "Banco Económico",
-    "compra": "10.70",
-    "oficial": "11.70",
+    "compra": "10.73",
+    "oficial": "11.73",
     "origen": "automatico",
-    "venta": "12.05"
+    "venta": "12.08"
   },
   "fie": {
-    "actualizado": "2026-10-20 21:54:45 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:19:34 (hora Bolivia)",
     "banco": "Banco FIE",
-    "compra": "10.80",
-    "oficial": "11.70",
+    "compra": "10.83",
+    "oficial": "11.73",
     "origen": "automatico",
-    "venta": "11.80"
+    "venta": "11.83"
   },
   "fortaleza": {
-    "actualizado": "2026-10-20 21:53:57 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:18:41 (hora Bolivia)",
     "banco": "Banco Fortaleza",
     "compra": "11.40",
     "oficial": "11.70",
@@ -84,20 +84,20 @@
     "venta": "12.00"
   },
   "ganadero": {
-    "actualizado": "2026-10-20 21:53:32 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:18:16 (hora Bolivia)",
     "banco": "Banco Ganadero",
     "origen": "automatico",
-    "venta": "12.00"
+    "venta": "12.03"
   },
   "prodem": {
-    "actualizado": "2026-10-20 21:53:50 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:18:33 (hora Bolivia)",
     "banco": "Banco Prodem",
     "compra": "11.40",
     "origen": "automatico",
     "venta": "11.80"
   },
   "union": {
-    "actualizado": "2026-10-20 21:53:18 (hora Bolivia)",
+    "actualizado": "2026-10-21 03:18:00 (hora Bolivia)",
     "banco": "Banco Unión",
     "compra": "10.20",
     "origen": "automatico"

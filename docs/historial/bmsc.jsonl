@@ -185,3 +185,4 @@
 {"banco_id": "bmsc", "banco": "Banco Mercantil Santa Cruz", "consultado": "2026-11-09T21:45:12-04:00", "origen": "automatico", "compra": "10.71", "venta": "12.11", "oficial": "11.81"}
 {"banco_id": "bmsc", "banco": "Banco Mercantil Santa Cruz", "consultado": "2026-11-10T05:29:34-04:00", "origen": "automatico", "compra": "10.65", "venta": "12.05", "oficial": "11.75"}
 {"banco_id": "bmsc", "banco": "Banco Mercantil Santa Cruz", "consultado": "2026-11-10T13:15:26-04:00", "origen": "automatico", "compra": "10.65", "venta": "12.05", "oficial": "11.75"}
+{"banco_id": "bmsc", "banco": "Banco Mercantil Santa Cruz", "consultado": "2026-11-10T18:29:45-04:00", "origen": "automatico", "compra": "10.65", "venta": "12.05", "oficial": "11.75"}

@@ -193,3 +193,4 @@
 {"banco_id": "fie", "banco": "Banco FIE", "consultado": "2026-11-11T20:18:52-04:00", "origen": "automatico", "compra": "10.71", "venta": "11.91", "oficial": "11.71"}
 {"banco_id": "fie", "banco": "Banco FIE", "consultado": "2026-11-12T03:36:41-04:00", "origen": "automatico", "compra": "10.70", "venta": "11.90", "oficial": "11.70"}
 {"banco_id": "fie", "banco": "Banco FIE", "consultado": "2026-11-12T12:43:15-04:00", "origen": "automatico", "compra": "10.70", "venta": "12.05", "oficial": "11.70"}
+{"banco_id": "fie", "banco": "Banco FIE", "consultado": "2026-11-12T18:41:35-04:00", "origen": "automatico", "compra": "10.70", "venta": "12.05", "oficial": "11.70"}

@@ -2,5 +2,5 @@ banco=Banco Fortaleza
 compra=11.37
 venta=11.97
 oficial=11.67
-actualizado=2026-11-13 07:28:21 (hora Bolivia)
+actualizado=2026-11-13 14:43:58 (hora Bolivia)
 origen=automatico

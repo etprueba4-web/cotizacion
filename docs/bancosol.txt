@@ -2,5 +2,5 @@ banco=BancoSol
 compra=10.53
 venta=11.95
 oficial=11.70
-actualizado=2026-11-17 17:36:19 (hora Bolivia)
+actualizado=2026-11-17 23:26:40 (hora Bolivia)
 origen=automatico

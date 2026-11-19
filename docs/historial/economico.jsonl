@@ -214,3 +214,4 @@
 {"banco_id": "economico", "banco": "Banco Económico", "consultado": "2026-11-17T23:26:40-04:00", "origen": "automatico", "compra": "10.70", "venta": "12.05", "oficial": "11.70"}
 {"banco_id": "economico", "banco": "Banco Económico", "consultado": "2026-11-18T08:08:03-04:00", "origen": "automatico", "compra": "10.75", "venta": "12.10", "oficial": "11.75"}
 {"banco_id": "economico", "banco": "Banco Económico", "consultado": "2026-11-18T16:50:04-04:00", "origen": "automatico", "compra": "10.75", "venta": "12.10", "oficial": "11.75"}
+{"banco_id": "economico", "banco": "Banco Económico", "consultado": "2026-11-18T22:25:49-04:00", "origen": "automatico", "compra": "10.75", "venta": "12.10", "oficial": "11.75"}

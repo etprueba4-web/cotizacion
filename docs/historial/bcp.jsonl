@@ -218,3 +218,4 @@
 {"banco_id": "bcp", "banco": "Banco de Crédito (BCP)", "consultado": "2026-11-19T06:44:20-04:00", "origen": "automatico", "compra": "11.18", "venta": "11.98", "oficial": null}
 {"banco_id": "bcp", "banco": "Banco de Crédito (BCP)", "consultado": "2026-11-19T15:25:02-04:00", "origen": "automatico", "compra": "11.18", "venta": "11.98", "oficial": null}
 {"banco_id": "bcp", "banco": "Banco de Crédito (BCP)", "consultado": "2026-11-19T21:24:22-04:00", "origen": "automatico", "compra": "11.18", "venta": "11.98", "oficial": null}
+{"banco_id": "bcp", "banco": "Banco de Crédito (BCP)", "consultado": "2026-11-20T04:58:16-04:00", "origen": "automatico", "compra": "11.25", "venta": "12.05", "oficial": null}

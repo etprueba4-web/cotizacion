@@ -1,4 +1,4 @@
 banco=Banco Ganadero
 compra=10.00
-actualizado=2026-11-20 19:48:20 (hora Bolivia)
+actualizado=2026-11-21 02:17:17 (hora Bolivia)
 origen=automatico

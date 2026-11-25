@@ -233,3 +233,4 @@
 {"banco_id": "bisa", "banco": "Banco BISA", "consultado": "2026-11-24T16:47:39-04:00", "origen": "automatico", "compra": "11.08", "venta": "12.01", "oficial": null}
 {"banco_id": "bisa", "banco": "Banco BISA", "consultado": "2026-11-25T00:00:40-04:00", "origen": "automatico", "compra": "11.08", "venta": "12.01", "oficial": null}
 {"banco_id": "bisa", "banco": "Banco BISA", "consultado": "2026-11-25T10:11:08-04:00", "origen": "automatico", "compra": "11.13", "venta": "12.06", "oficial": null}
+{"banco_id": "bisa", "banco": "Banco BISA", "consultado": "2026-11-25T19:14:21-04:00", "origen": "automatico", "compra": "11.13", "venta": "12.06", "oficial": null}

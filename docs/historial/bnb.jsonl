@@ -236,3 +236,4 @@
 {"banco_id": "bnb", "banco": "Banco Nacional de Bolivia", "consultado": "2026-11-25T00:00:29-04:00", "origen": "automatico", "compra": "11.83", "venta": "12.13", "oficial": "11.83"}
 {"banco_id": "bnb", "banco": "Banco Nacional de Bolivia", "consultado": "2026-11-25T10:10:58-04:00", "origen": "automatico", "compra": "11.83", "venta": "12.13", "oficial": "11.83"}
 {"banco_id": "bnb", "banco": "Banco Nacional de Bolivia", "consultado": "2026-11-25T19:14:11-04:00", "origen": "automatico", "compra": "11.83", "venta": "12.13", "oficial": "11.83"}
+{"banco_id": "bnb", "banco": "Banco Nacional de Bolivia", "consultado": "2026-11-26T01:20:08-04:00", "origen": "automatico", "compra": "11.86", "venta": "12.16", "oficial": "11.86"}
